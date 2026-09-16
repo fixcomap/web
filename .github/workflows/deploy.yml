@@ -1,0 +1,64 @@
+# Publicación en Cloudflare Pages desde el pipeline, no por integración Git:
+# así solo se publica lo que pasó por pr-checks y rulesets, queda registrado en
+# Actions y puede crecer (build, tests, firma) sin cambiar de modelo.
+#   main    → producción (fixcomap.com, www)      environment "production"
+#   develop → preview   (develop.fixcomap-landing.pages.dev)
+# Token de Cloudflare acotado a Account > Cloudflare Pages > Edit, distinto del
+# de DNS que usa fixcomap/platform. Es una credencial de larga duración: vive
+# como secret de environment, nunca de repo.
+name: deploy
+
+on:
+  push:
+    branches: [main, develop]
+  workflow_dispatch:
+
+permissions: {}
+
+defaults:
+  run:
+    shell: bash
+
+concurrency:
+  group: deploy-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  pages:
+    name: pages (${{ github.ref_name == 'main' && 'producción' || 'preview' }})
+    runs-on: ubuntu-latest
+    environment: ${{ github.ref_name == 'main' && 'production' || 'preview' }}
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: wrangler pages deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          npm ci --no-audit --no-fund
+          npx wrangler pages deploy public \
+            --project-name fixcomap-landing \
+            --branch "${{ github.ref_name }}" \
+            --commit-hash "$GITHUB_SHA" \
+            --commit-message "$(git log -1 --format=%s)" \
+            --commit-dirty=false 2>&1 | tee deploy.log
+          url=$(grep -oE 'https://[a-z0-9.-]+\.pages\.dev' deploy.log | tail -1)
+          echo "url: ${url:-?}" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: comprobar que responde
+        if: github.ref_name == 'main'
+        run: |
+          for _ in $(seq 1 12); do
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 15 https://fixcomap.com/ || true)
+            [ "$code" = "200" ] && { echo "https://fixcomap.com → 200"; exit 0; }
+            sleep 10
+          done
+          echo "::error::https://fixcomap.com no responde 200 tras el deploy"; exit 1
