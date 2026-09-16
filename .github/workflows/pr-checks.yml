@@ -59,7 +59,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: validar HTML (W3C Nu)
         run: |
-          docker run --rm -v "$PWD:/site:ro" ghcr.io/validator/validator:20.6.30 \
+          docker run --rm -v "$PWD:/site:ro" ghcr.io/validator/validator:24.10.17 \
             vnu --skip-non-html --errors-only --also-check-css /site/public
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
