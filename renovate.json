@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", "helpers:pinGitHubActionDigests", ":semanticCommitsDisabled"],
+  "commitMessagePrefix": "chore(deps):",
+  "commitMessageLowerCase": "always",
+  "baseBranches": ["develop"],
+  "labels": ["dependencies"],
+  "schedule": ["before 6am on monday"],
+  "packageRules": [
+    { "matchManagers": ["github-actions"], "pinDigests": true, "groupName": "github actions" },
+    { "matchManagers": ["npm"], "groupName": "stylelint" }
+  ]
+}
