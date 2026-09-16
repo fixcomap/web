@@ -1,6 +1,7 @@
 # Cómo contribuir
 
-Mismo flujo que `fixcomap/platform`: GitFlow, `develop` por defecto, `main` despliega (Cloudflare Pages).
+Mismo flujo que `fixcomap/platform`: GitFlow, `develop` por defecto. `deploy.yml` publica `develop` como
+preview y `main` en producción (environment `production`).
 
 ```sh
 git switch develop && git pull
