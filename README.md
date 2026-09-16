@@ -1,8 +1,9 @@
 # fixcomap/web
 
 Landing de [fixcomap.com](https://fixcomap.com) y `www`. HTML/CSS estático, sin framework ni build.
-Servido por Cloudflare Pages, que hace pull de este repo: cada push a `main` publica en producción y
-cada push a `develop` genera una preview en `*.fixcomap-landing.pages.dev`. Sin credenciales en Actions.
+Servido por Cloudflare Pages. Publica `deploy.yml` con `wrangler pages deploy`: cada push a `main`
+va a producción (environment `production`) y cada push a `develop` a la preview
+`develop.fixcomap-landing.pages.dev`. El token de Cloudflare está acotado a Pages y es distinto del de DNS.
 
 El proyecto de Pages, sus dominios y el DNS viven como código en
 [`fixcomap/platform`](https://github.com/fixcomap/platform) (`infra/dns/pages.tf`).
@@ -16,7 +17,7 @@ El proyecto de Pages, sus dominios y el DNS viven como código en
 | `public/_headers` | Cabeceras que aplica Pages (CSP estricta: sin JS) |
 | `public/robots.txt` | Indexable |
 | `public/assets/` | Fotos y CVs; nombres exactos en `public/assets/README.md` |
-| `package.json` | Solo `stylelint` para CI; nunca se publica (está fuera de `public/`) |
+| `package.json` | `stylelint` y `wrangler` para CI; nunca se publica (está fuera de `public/`) |
 
 ## Flujo
 
