@@ -3,45 +3,219 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>fixcomap</title>
-  <meta name="description" content="fixcomap: Agustín y Elías Prieto. Infraestructura, plataforma y producto.">
+  <title>fixcomap · Soluciones sin fronteras</title>
+  <meta name="description" content="fixcomap: soluciones tecnológicas para empresas, entre España y Argentina.">
   <link rel="stylesheet" href="/style.css">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 </head>
 <body>
+  <header class="site-header">
+    <div class="wrap header-grid">
+      <a class="brand-icon" href="#inicio" aria-label="fixcomap, inicio">
+        <img src="/assets/f.png" alt="fixcomap" width="36" height="36">
+      </a>
+
+      <nav class="site-nav" aria-label="Principal">
+        <a href="#servicios">Qué hacemos</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <a class="btn btn-cta header-cta" href="mailto:hola@fixcomap.com">Hablemos</a>
+
+      <details class="mobile-menu">
+        <summary class="menu-toggle" aria-label="Abrir menú">
+          <span class="hamburger" aria-hidden="true"></span>
+        </summary>
+        <div class="mobile-panel">
+          <nav class="mobile-nav" aria-label="Principal, móvil">
+            <a href="#servicios">Qué hacemos</a>
+            <a href="#equipo">Equipo</a>
+            <a href="#contacto">Contacto</a>
+          </nav>
+          <a class="btn btn-cta" href="mailto:hola@fixcomap.com">Hablemos</a>
+        </div>
+      </details>
+    </div>
+  </header>
+
   <main>
-    <header>
-      <h1>fixcomap</h1>
-      <p class="tagline">Dos Papanatas, una plataforma. Producto en construcción.</p>
-    </header>
+    <section id="inicio" class="hero">
+      <div class="wrap">
+        <div class="hero-brand">
+          <img
+            class="hero-logo"
+            src="/assets/logo-dark.png"
+            alt="fixcomap · Soluciones sin fronteras"
+            width="900"
+            height="276"
+          >
+        </div>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1>Construimos <span class="grad">tecnología</span> a medida para tu negocio</h1>
+            <p class="lead">
+              fixcomap es un equipo que ayuda a empresas a resolver problemas técnicos con soluciones
+              simples, sólidas y pensadas para durar.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="mailto:hola@fixcomap.com">Contactar</a>
+              <a class="btn btn-secondary" href="#servicios">Qué hacemos</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="orbit" aria-hidden="true">
+              <div class="ring-track ring-track-outer"></div>
+              <div class="ring-track ring-track-inner"></div>
 
-    <section class="people">
-      <article>
-        <img src="/assets/agustin.jpg" alt="Agustín Prieto" width="160" height="160">
-        <h2>Agustín Prieto</h2>
-        <p>DevOps. Infraestructura, pipelines y seguridad.</p>
-        <a href="/assets/cv-agustin.pdf">CV (PDF)</a>
-      </article>
-      <article>
-        <img src="/assets/elias.jpg" alt="Elías Prieto" width="160" height="160">
-        <h2>Elías Prieto</h2>
-        <p>DevOps. Plataforma y operaciones.</p>
-        <a href="/assets/cv-elias.pdf">CV (PDF)</a>
-      </article>
+              <div class="ring ring-outer">
+                <div class="chip chip-o1">
+                  <div class="chip-face face-red">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 16 0v5a2 2 0 0 1-2 2h-1v-6h3M4 12v5a2 2 0 0 0 2 2h1v-6H4"/></svg>
+                    <span class="chip-label">Soporte</span>
+                  </div>
+                </div>
+                <div class="chip chip-o2">
+                  <div class="chip-face face-yellow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 0 1-.6-7.95A5 5 0 0 1 16 8a3.5 3.5 0 0 1 1.2 6.8"/><path d="M8 18h9a3 3 0 0 0 0-6"/></svg>
+                    <span class="chip-label">Cloud</span>
+                  </div>
+                </div>
+                <div class="chip chip-o3">
+                  <div class="chip-face face-sky">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M7.4 7.6 10.8 16M16.6 7.6 13.2 16M8 6h8"/></svg>
+                    <span class="chip-label">Redes</span>
+                  </div>
+                </div>
+                <div class="chip chip-o4">
+                  <div class="chip-face face-blue">
+                    <span class="flag" aria-hidden="true">🇪🇸</span>
+                    <span class="chip-label">España</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ring ring-inner">
+                <div class="chip chip-i1">
+                  <div class="chip-face face-blue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/></svg>
+                    <span class="chip-label">Seguridad</span>
+                  </div>
+                </div>
+                <div class="chip chip-i2">
+                  <div class="chip-face face-red">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg>
+                    <span class="chip-label">Automatización</span>
+                  </div>
+                </div>
+                <div class="chip chip-i3">
+                  <div class="chip-face face-sky">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg>
+                    <span class="chip-label">Web</span>
+                  </div>
+                </div>
+                <div class="chip chip-i4">
+                  <div class="chip-face face-yellow">
+                    <span class="flag" aria-hidden="true">🇦🇷</span>
+                    <span class="chip-label">Argentina</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="orbit-core">
+                <img class="orbit-f" src="/assets/f.png" alt="" width="140" height="140">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="about">
-      <h2>Sobre nosotros</h2>
-      <p>
-        Somos dos ingenieros DevOps construyendo fixcomap desde cero: infraestructura como código,
-        despliegues automáticos y seguridad por diseño, sin gastar más de lo necesario. Esta página es
-        la base; el producto viene después.
-      </p>
+    <div class="flag-divider" aria-hidden="true"></div>
+
+    <section id="servicios" class="section section-warm">
+      <div class="wrap">
+        <h2>Qué hacemos</h2>
+        <!-- PENDIENTE: definir servicios reales -->
+        <div class="cards">
+          <article class="card card-red">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v10H8l-4 4V5Z"/></svg>
+            </div>
+            <h3>Consultoría técnica</h3>
+            <p>
+              Analizamos tu situación actual y proponemos un camino claro, priorizando lo que
+              realmente aporta valor a tu negocio.
+            </p>
+          </article>
+          <article class="card card-yellow">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 3 12l5 6M16 6l5 6-5 6"/></svg>
+            </div>
+            <h3>Desarrollo de soluciones</h3>
+            <p>
+              Diseñamos e implementamos soluciones a medida, pensadas para crecer con vos y
+              adaptarse a lo que necesites.
+            </p>
+          </article>
+          <article class="card card-sky">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.35-9.5-8.5C1 8 2.5 4.5 6 4.5c2 0 3.3 1.2 4 2.3.7-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 7C19 15.65 12 20 12 20Z"/></svg>
+            </div>
+            <h3>Acompañamiento continuo</h3>
+            <p>
+              No desaparecemos después de la entrega: seguimos cerca para resolver dudas y sumar
+              mejoras cuando hacen falta.
+            </p>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <footer>
-      <p>Contacto: <a href="mailto:hola@fixcomap.com">hola@fixcomap.com</a></p>
-    </footer>
+    <div class="flag-divider" aria-hidden="true"></div>
+
+    <section id="equipo" class="section section-alt section-cool">
+      <div class="wrap">
+        <h2>Equipo</h2>
+        <div class="team">
+          <article class="member">
+            <div class="avatar">
+              <img src="/assets/agus.webp" alt="Agustín Prieto" width="600" height="600" loading="lazy">
+            </div>
+            <h3>Agustín Prieto</h3>
+            <p class="role">DevOps. Infraestructura, pipelines y seguridad.</p>
+            <a class="cv-link" href="/assets/cv-agustin.pdf">Ver CV (PDF)</a>
+          </article>
+          <article class="member">
+            <div class="avatar">
+              <img src="/assets/fotona.webp" alt="Elías Prieto" width="600" height="600" loading="lazy">
+            </div>
+            <h3>Elías Prieto</h3>
+            <p class="role">DevOps. Plataforma y operaciones.</p>
+            <a class="cv-link" href="/assets/cv-elias.pdf">Ver CV (PDF)</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="flag-divider" aria-hidden="true"></div>
+
+    <section id="contacto" class="section section-warm">
+      <div class="wrap contact-wrap">
+        <h2>Hablemos</h2>
+        <p>¿Tenés un proyecto o una idea en mente? Escribinos, con gusto lo conversamos.</p>
+        <a class="btn btn-primary" href="mailto:hola@fixcomap.com">hola@fixcomap.com</a>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-wrap">
+      <p>© 2026 fixcomap</p>
+      <p class="slogan">Soluciones sin fronteras</p>
+    </div>
+  </footer>
 </body>
 </html>
