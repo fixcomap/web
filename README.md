@@ -31,4 +31,4 @@ Actions y de `wrangler` los mantiene Renovate en `platform`.
 
 ## Contacto
 
-`hola@fixcomap.com` (Cloudflare Email Routing).
+`contacto@fixcomap.com` (Cloudflare Email Routing).
