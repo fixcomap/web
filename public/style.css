@@ -334,27 +334,6 @@ a:hover {
   }
 }
 
-/* header responsive visibility: after .btn so display wins the tie */
-
-.site-nav,
-.header-cta {
-  display: none;
-}
-
-@media (width >= 64em) {
-  .site-nav {
-    display: flex;
-  }
-
-  .header-cta {
-    display: inline-flex;
-  }
-
-  .mobile-menu {
-    display: none;
-  }
-}
-
 /* buttons */
 
 .btn {
@@ -454,6 +433,27 @@ a:hover {
 
 .mobile-panel .btn {
   margin: 4px 20px 20px;
+}
+
+/* header responsive visibility: after .btn so display wins the tie */
+
+.site-nav,
+.header-cta {
+  display: none;
+}
+
+@media (width >= 64em) {
+  .site-nav {
+    display: flex;
+  }
+
+  .header-cta {
+    display: inline-flex;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
 }
 
 /* main / sections */
