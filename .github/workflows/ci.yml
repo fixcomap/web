@@ -19,14 +19,20 @@ concurrency:
   group: ci-${{ github.head_ref || github.ref_name }}
   cancel-in-progress: false
 
+# Un workflow llamado no puede pedir más permisos que el job que lo llama: los
+# reusables necesitan contents: read para el checkout.
 jobs:
   checks:
+    permissions:
+      contents: read
     uses: fixcomap/platform/.github/workflows/rw-static-checks.yml@main
     with:
       site_dir: public
 
   deploy:
     needs: checks
+    permissions:
+      contents: read
     uses: fixcomap/platform/.github/workflows/rw-pages-deploy.yml@main
     with:
       project_name: fixcomap-landing
