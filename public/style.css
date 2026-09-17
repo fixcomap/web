@@ -268,12 +268,12 @@ a {
 @keyframes panel-in {
   from {
     opacity: 0;
-    translate: 0 -10px;
+    transform: translateY(-10px);
   }
 
   to {
     opacity: 1;
-    translate: 0 0;
+    transform: translateY(0);
   }
 }
 
@@ -838,12 +838,12 @@ a {
 @keyframes reveal-up {
   from {
     opacity: 0;
-    translate: 0 28px;
+    transform: translateY(28px);
   }
 
   to {
     opacity: 1;
-    translate: 0 0;
+    transform: translateY(0);
   }
 }
 
