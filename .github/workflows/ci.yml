@@ -1,9 +1,7 @@
-# Este repo no tiene pipeline propio: llama a los reusable workflows de
-# fixcomap/platform (rw-static-checks, rw-pages-deploy). La lógica, los pines y
-# Renovate viven allí; aquí solo se declara qué sitio es y a dónde va.
-#   PR       → checks + preview <rama>.fixcomap-landing.pages.dev  (environment preview)
-#   develop  → checks + preview develop.fixcomap-landing.pages.dev (environment preview)
-#   main     → checks + producción fixcomap.com / www              (environment production)
+# Pipeline estándar de fixcomap: idéntico en todos los repos, no se edita.
+# Qué se ejecuta lo decide fixcomap/platform según catalog/<repo>.yaml (tipo
+# de proyecto) y la rama. Copia canónica: platform/caller/ci.yml; Renovate
+# actualiza la versión.
 name: ci
 
 on:
@@ -19,24 +17,11 @@ concurrency:
   group: ci-${{ github.head_ref || github.ref_name }}
   cancel-in-progress: false
 
-# Un workflow llamado no puede pedir más permisos que el job que lo llama: los
-# reusables necesitan contents: read para el checkout.
 jobs:
-  checks:
+  cicd:
+    # Techo de permisos; cada job de cicd.yml pide solo lo suyo.
     permissions:
-      contents: read
-    uses: fixcomap/platform/.github/workflows/rw-static-checks.yml@main
-    with:
-      site_dir: public
-
-  deploy:
-    needs: checks
-    permissions:
-      contents: read
-    uses: fixcomap/platform/.github/workflows/rw-pages-deploy.yml@main
-    with:
-      project_name: fixcomap-landing
-      site_dir: public
-      environment: ${{ github.ref_name == 'main' && 'production' || 'preview' }}
-      production_url: https://fixcomap.com
+      contents: write # tag de versión
+      id-token: write # OIDC (GCP, cosign)
+    uses: fixcomap/platform/.github/workflows/cicd.yml@v0.17.0
     secrets: inherit
